@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import Login from './Login'
+
 import './App.css'
 // react router
 function App() {
-  const [login, setLogin] = useState(false)
   const [userNumber, setUserNumber] = useState(2)
   const [userId, setUserId] = useState(null)
   const [update, setUpdate] = useState(null)
@@ -23,77 +23,7 @@ function App() {
       status: 'Active'
     }
   ])
-  // useEffect(() => {
-  //   if (adminValue == 'admin' && passwordValue == '123') {
-  //     setLogin(true)
 
-  //   }
-  //   else {
-  //     setLogin(false)
-  //   }
-
-  // })
-
-  // if (!login) {
-
-  //   return <div className="loginPage">
-  //     <div className="loginContainer">
-  //       <div className="adminCreation">
-  //         <h3>Create Admin Password</h3>
-  //         <div className="inputGroup">
-  //           <input
-  //             type="password"
-  //             value={createPasswordValue}
-  //             placeholder="Enter new password..."
-  //             className="inputField"
-  //             onChange={(event) => {
-  //             setcreatepaswordValue(event.target.value)
-  //           }}
-  //           />
-  //           <button
-  //             onClick={() => createAdminPassword()}
-  //             className="generateBtn"
-  //           >
-  //             Generate Admin
-  //           </button>
-  //         </div>
-  //       </div>
-
-  //       <div className="loginSection">
-  //         <h2>Admin Login</h2>
-  //         <div className="inputGroup">
-  //           <input
-  //             type="text"
-  //             placeholder="Username"
-  //             value={adminValue}
-  //             className="inputField"
-  //             onChange={(event) => {
-  //               setadminValue(event.target.value)
-  //             }}
-  //           />
-  //         </div>
-  //         <div className="inputGroup">
-
-  //           <input
-  //             type="password"
-  //             placeholder="Password"
-  //             value={passwordValue}
-  //             className="inputField"
-  //             onChange={(event) => {
-  //               setpaswordValue(event.target.value)
-  //             }}
-  //           />
-  //         </div>
-  //         <button
-  //           onClick={() => setLogin()}
-  //           className="loginBtn"
-  //         >
-  //           Log In
-  //         </button>
-  //       </div>
-  //     </div>
-  //   </div>
-  // }
 
   function addNewUser() {
     setUsers((u) => {
@@ -123,12 +53,12 @@ function App() {
   }
   function deleteUser(userNumber) {
     setUserNumber(userNumber)
-    setUsers((u)=>{
+    setUsers((u) => {
       let nextUser = [...u]
-      nextUser.splice(userNumber,1)
+      nextUser.splice(userNumber, 1)
       return nextUser
     })
-    
+
 
   }
   function editUser(userNumber) {
@@ -141,9 +71,16 @@ function App() {
   }
 
   return (
+
     <>
-
-
+      <Router>
+        <div>
+          <Routes>
+            
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        </div>
+      </Router>
       <div className="app">
         <div className="layout">
           <div className="card">
@@ -208,7 +145,7 @@ function App() {
             <button className="btn btn-primary full" onClick={() => addNewUser()}>Save Changes</button>
 
             <div className="alert success">User updated successfully!</div>
-            <button onClick={() => setLogin()} className='alert success'>Exit</button>
+
           </div>
         </div>
 
