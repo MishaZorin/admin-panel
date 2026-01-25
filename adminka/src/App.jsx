@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-import Login from './Login'
+import { Routes, Route } from "react-router";
+// import Login from './Login'
 
 import './App.css'
 // react router
@@ -73,14 +73,9 @@ function App() {
   return (
 
     <>
-      <Router>
-        <div>
-          <Routes>
-            
-            <Route path="/login" element={<Login />} />
-          </Routes>
-        </div>
-      </Router>
+      {/* <Routes>
+        <Route path="step-3" element={<Login />} />
+      </Routes> */}
       <div className="app">
         <div className="layout">
           <div className="card">

@@ -31,7 +31,7 @@ h2 {
   font-size: 18px;
 }
 
-/* TABLE */
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -54,7 +54,7 @@ td {
   background: #f9fafb;
 }
 
-/* STATUS */
+
 .status {
   padding: 4px 8px;
   border-radius: 12px;
@@ -71,7 +71,6 @@ td {
   color: #c0392b;
 }
 
-/* BUTTONS */
 .btn {
   padding: 6px 12px;
   border-radius: 4px;
@@ -105,7 +104,7 @@ td {
   margin-top: 12px;
 }
 
-/* FORM */
+
 label {
   display: block;
   margin-top: 12px;
@@ -120,7 +119,7 @@ input, select {
   border: 1px solid #d1d5db;
 }
 
-/* PAGINATION */
+
 .pagination {
   display: flex;
   justify-content: space-between;
@@ -128,7 +127,7 @@ input, select {
   font-size: 13px;
 }
 
-/* ALERTS */
+
 .alert {
   margin-top: 12px;
   padding: 10px;
@@ -149,52 +148,7 @@ input, select {
   background: #e6f4ea;
   color: #1e7f43;
 }
-@media (max-width: 600px) {
 
-  body {
-    font-size: 14px;
-  }
-
-  .app {
-    padding: 12px;
-  }
-
-  /* Table scroll */
-  .card {
-    overflow-x: auto;
-  }
-
-  table {
-    min-width: 560px;
-  }
-
-  th, td {
-    white-space: nowrap;
-  }
-
-  /* Buttons */
-  .btn {
-    padding: 8px 10px;
-    font-size: 12px;
-  }
-
-  td:last-child {
-    display: flex;
-    gap: 6px;
-  }
-
-  /* Pagination */
-  .pagination {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-  }
-
-  /* Form */
-  input, select {
-    font-size: 14px;
-  }
-}
 .loginPage {
   display: flex;
   justify-content: center;
@@ -309,7 +263,7 @@ input, select {
   transform: translateY(0);
 }
 
-/* Анимация появления */
+
 .loginContainer {
   animation: fadeIn 0.5s ease-out;
 }
@@ -324,15 +278,20 @@ input, select {
     transform: translateY(0);
   }
 }
+@media (max-width: 600px) {
 
-/* Адаптивность */
-@media (max-width: 480px) {
-  .loginContainer {
-    padding: 30px 20px;
-    border-radius: 15px;
+  .layout {
+    display: flex;
+    flex-direction: column;
   }
-  
-  .loginSection h2 {
-    font-size: 22px;
+
+  .layout > .card:first-child {
+    order: 1;
   }
+
+  .layout > .card:last-child {
+    order: 2;
+  }
+
 }
+
