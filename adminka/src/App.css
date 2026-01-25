@@ -292,6 +292,27 @@ input, select {
   .layout > .card:last-child {
     order: 2;
   }
+  table {
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  th, td {
+    padding: 4px;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+
+  .btn {
+    padding: 4px 6px;
+    font-size: 11px;
+  }
+
+  .status {
+    font-size: 10px;
+    padding: 2px 6px;
+  }
+
 
 }
 
