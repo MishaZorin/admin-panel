@@ -11,18 +11,22 @@ function App() {
   const [statusValue, setstatusValue] = useState('')
   const [nameValue, setnameValue] = useState('')
   const [emailValue, setemailValue] = useState('')
-  const [users, setUsers] = useState([
-    {
-      name: 'Alex',
-      email: 'Alex@gmail.com',
-      status: 'Active'
-    },
-    {
-      name: 'fsociety',
-      email: 'fsociety@gmail.com',
-      status: 'Active'
+  const [users, setUsers] = useState(() => {
+    const savedUsers = localStorage.getItem('users')
+
+    if (savedUsers !== null) {
+      return JSON.parse(savedUsers)
     }
-  ])
+
+    return [
+      { name: 'Alex', email: 'Alex@gmail.com', status: 'Active' },
+      { name: 'fsociety', email: 'fsociety@gmail.com', status: 'Active' }
+    ]
+  })
+
+   useEffect(() => {
+    localStorage.setItem('users', JSON.stringify(users))
+  }, [users])
 
 
   function addNewUser() {
